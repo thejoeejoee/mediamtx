@@ -124,7 +124,6 @@ type Metrics struct {
 func (m *Metrics) Initialize() error {
 	router := gin.New()
 	router.SetTrustedProxies(m.TrustedProxies.ToTrustedProxies()) //nolint:errcheck
-
 	router.Use(m.middlewarePreflightRequests)
 	router.Use(m.middlewareAuth)
 
@@ -148,7 +147,7 @@ func (m *Metrics) Initialize() error {
 		return err
 	}
 
-	str := "listener opened on " + m.Address
+	str := "started with listener on " + m.Address
 	if !m.Encryption {
 		str += " (TCP/HTTP)"
 	} else {
@@ -161,7 +160,7 @@ func (m *Metrics) Initialize() error {
 
 // Close closes Metrics.
 func (m *Metrics) Close() {
-	m.Log(logger.Info, "listener is closing")
+	m.Log(logger.Info, "closing")
 	m.httpServer.Close()
 }
 

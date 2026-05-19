@@ -394,6 +394,15 @@ type Conf struct {
 	SRT        bool   `json:"srt"`
 	SRTAddress string `json:"srtAddress"`
 
+	// MOQ server
+	MOQ               bool       `json:"moq"`
+	MOQHTTPS2Address  string     `json:"moqHTTPS2Address"`
+	MOQHTTPS3Address  string     `json:"moqHTTPS3Address"`
+	MOQServerKey      string     `json:"moqServerKey"`
+	MOQServerCert     string     `json:"moqServerCert"`
+	MOQAllowOrigins   []string   `json:"moqAllowOrigins"`
+	MOQTrustedProxies IPNetworks `json:"moqTrustedProxies"`
+
 	// Record (deprecated)
 	Record                *bool         `json:"record,omitempty" deprecated:"true"`
 	RecordPath            *string       `json:"recordPath,omitempty" deprecated:"true"`
@@ -521,6 +530,14 @@ func (conf *Conf) setDefaults() {
 	// SRT server
 	conf.SRT = true
 	conf.SRTAddress = ":8890"
+
+	// MOQ server
+	conf.MOQ = true
+	conf.MOQHTTPS2Address = ":8892"
+	conf.MOQHTTPS3Address = ":8892"
+	conf.MOQServerKey = "auto.key"
+	conf.MOQServerCert = "auto.crt"
+	conf.MOQAllowOrigins = []string{"*"}
 
 	conf.PathDefaults.setDefaults()
 }

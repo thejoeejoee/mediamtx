@@ -1,8 +1,12 @@
 # Web browsers
 
-Web browsers can read a stream from the server with the [WebRTC](02-webrtc.md) and [HLS](05-hls.md) protocols, by accessing web pages hosted by the server. It is also possible to embed streams into an external website.
+Web browsers can read a stream from the server with the [Media-over-QUIC](01-moq.md), [WebRTC](02-webrtc.md) and [HLS](05-hls.md) protocols, by accessing web pages hosted by the server. It is also possible to embed streams into an external website.
 
 ## Direct read
+
+### Media-over-QUIC
+
+TODO
 
 ### WebRTC
 

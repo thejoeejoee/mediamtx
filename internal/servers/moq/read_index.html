@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: "Arial", sans-serif;
+      }
+      #video {
+        width: 100%;
+        height: 100%;
+        background: rgb(30, 30, 30);
+      }
+      #video canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      #message {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        pointer-events: none;
+        padding: 20px;
+        box-sizing: border-box;
+        text-shadow: 0 0 5px black;
+      }
+    </style>
+    <script defer src="./reader.js"></script>
+  </head>
+  <body>
+    <div id="video"></div>
+    <div id="message"></div>
+
+    <script>
+      const message = document.getElementById("message");
+
+      const setMessage = (str) => {
+        message.innerText = str;
+      };
+
+      window.addEventListener("load", () => {
+        new MediaMTXMoQReader({
+          videoElement: document.getElementById("video"),
+          onError: (err) => {
+            setMessage(err);
+          },
+          onSubscribed: () => {
+            setMessage("");
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

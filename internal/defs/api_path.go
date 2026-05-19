@@ -52,6 +52,7 @@ const (
 	APIPathReaderTypeRTSPSSession  APIPathReaderType = "rtspsSession"
 	APIPathReaderTypeSRTConn       APIPathReaderType = "srtConn"
 	APIPathReaderTypeWebRTCSession APIPathReaderType = "webRTCSession"
+	APIPathReaderTypeMOQSession    APIPathReaderType = "moqSession"
 	APIPathReaderTypeHidden        APIPathReaderType = "hidden"
 )
 
